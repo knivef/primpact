@@ -9,35 +9,33 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #f0ede8;
+      background: #003401;
       font-family: 'DM Sans', sans-serif;
       font-weight: 400;
-      color: #444;
+      color: #b0c4b0;
       padding: 48px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* ── Page ─────────────────────────────────────── */
     .page {
       width: 794px;
       min-height: 1123px;
-      background: #fff;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+      background: #0a1f0a;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.40);
       padding: 56px 64px;
       position: relative;
       border-radius: 0;
     }
 
-    /* ── Page separator ───────────────────────────── */
+    /* logo white override */
+    .doc-header .logo svg path,
+    .page-footer .footer-logo svg path { fill: #FFFFFF; }
+
     .page-sep {
       width: 794px;
       display: flex;
@@ -45,527 +43,193 @@
       gap: 16px;
       margin: 20px 0;
     }
-    .page-sep::before,
-    .page-sep::after {
-      content: '';
-      flex: 1;
-      height: 0.5px;
-      background: #ccc;
+    .page-sep::before, .page-sep::after {
+      content: ''; flex: 1; height: 0.5px; background: rgba(1,228,111,0.15);
     }
     .page-sep span {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #aaa;
-      white-space: nowrap;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(1,228,111,0.4); white-space: nowrap;
     }
 
-    /* ── Section label ────────────────────────────── */
     .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #aaa;
-      margin-bottom: 12px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(1,228,111,0.65); margin-bottom: 12px;
     }
 
-    /* ── Doc header ───────────────────────────────── */
     .doc-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1.5px solid #1a1a1a;
-      padding-bottom: 13px;
-      margin-bottom: 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1.5px solid rgba(1,228,111,0.3);
+      padding-bottom: 13px; margin-bottom: 32px;
     }
-    .doc-header .logo {
-      display: flex;
-      align-items: center;
-    }
-    .doc-header .logo svg {
-      height: 19px;
-      width: auto;
-    }
+    .doc-header .logo { display: flex; align-items: center; }
+    .doc-header .logo svg { height: 19px; width: auto; }
     .doc-header .doc-label {
-      font-size: 10.5px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #888;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
     }
 
-    /* ── Page footer ──────────────────────────────── */
     .page-footer {
-      position: absolute;
-      bottom: 28px;
-      left: 64px;
-      right: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: absolute; bottom: 28px; left: 64px; right: 64px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .page-footer .footer-logo svg {
-      height: 11px;
-      width: auto;
-      opacity: 0.32;
-    }
-    .page-footer .footer-page {
-      font-size: 11px;
-      font-weight: 300;
-      color: #ccc;
-    }
+    .page-footer .footer-logo svg { height: 11px; width: auto; opacity: 0.25; }
+    .page-footer .footer-page { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.2); }
 
-    /* ════════════════════════════════════════════════
-       PAGE 1
-    ════════════════════════════════════════════════ */
-
-    /* Hero 2-col */
+    /* ── Hero ─────────────────────────────────────── */
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 32px;
-      margin-bottom: 32px;
-      align-items: start;
+      display: grid; grid-template-columns: 1fr 260px;
+      gap: 32px; margin-bottom: 32px; align-items: start;
     }
     .hero-left .eyebrow {
-      font-size: 10.5px;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 10px;
+      font-size: 10.5px; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 10px;
     }
     .hero-left h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 36px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: #1a1a1a;
-      margin-bottom: 12px;
+      font-size: 36px; line-height: 1.15; letter-spacing: -0.02em;
+      color: #fff; margin-bottom: 12px;
     }
-    .hero-left h1 em {
-      font-style: italic;
-      color: #1a5c3a;
-    }
-    .hero-left .subtext {
-      font-size: 13px;
-      font-weight: 300;
-      color: #555;
-      line-height: 1.65;
-    }
-    .hero-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .hero-left h1 em { font-style: italic; color: #01E46F; }
+    .hero-left .subtext { font-size: 13px; font-weight: 300; color: #b0c4b0; line-height: 1.65; }
+    .hero-stats { display: flex; flex-direction: column; gap: 8px; }
     .hero-stat-card {
-      background: #f2f9f5;
-      border: 0.5px solid #b2d4be;
-      border-radius: 8px;
-      padding: 14px 16px;
+      background: rgba(1,228,111,0.06); border: 0.5px solid rgba(1,228,111,0.25);
+      border-radius: 8px; padding: 14px 16px;
     }
     .hero-stat-card .stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 28px;
-      color: #1a5c3a;
-      line-height: 1;
-      margin-bottom: 3px;
+      font-family: 'DM Serif Display', serif; font-size: 28px;
+      color: #01E46F; line-height: 1; margin-bottom: 3px;
     }
-    .hero-stat-card .stat-label {
-      font-size: 11px;
-      color: #555;
-      line-height: 1.4;
-    }
+    .hero-stat-card .stat-label { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.4; }
 
-    /* Chart section */
-    .section-chart {
-      margin-bottom: 32px;
-    }
-    .chart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 14px;
-    }
+    /* ── Bar chart ────────────────────────────────── */
+    .section-chart { margin-bottom: 32px; }
+    .chart-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; }
     .chart-header-left .chart-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-      color: #1a1a1a;
-      line-height: 1.2;
-      margin-bottom: 3px;
+      font-family: 'DM Serif Display', serif; font-size: 18px;
+      color: #fff; line-height: 1.2; margin-bottom: 3px;
     }
-    .chart-header-left .chart-sub {
-      font-size: 11.5px;
-      font-weight: 300;
-      color: #888;
-    }
-    .chart-legend {
-      display: flex;
-      gap: 16px;
-      font-size: 11px;
-      color: #555;
-    }
-    .chart-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .legend-swatch {
-      width: 9px;
-      height: 9px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-    .chart-canvas-wrap {
-      position: relative;
-      height: 220px;
-    }
-    .chart-below {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 8px;
-    }
-    .chart-below-left {
-      font-size: 10.5px;
-      color: #bbb;
-    }
-    .chart-below-right {
-      font-size: 10.5px;
-      font-weight: 500;
-      color: #1a5c3a;
-    }
+    .chart-header-left .chart-sub { font-size: 11.5px; font-weight: 300; color: rgba(255,255,255,0.4); }
+    .chart-legend { display: flex; gap: 16px; font-size: 11px; color: rgba(255,255,255,0.55); }
+    .chart-legend-item { display: flex; align-items: center; gap: 5px; }
+    .legend-swatch { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+    .chart-canvas-wrap { position: relative; height: 220px; }
+    .chart-below { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+    .chart-below-left { font-size: 10.5px; color: rgba(255,255,255,0.3); }
+    .chart-below-right { font-size: 10.5px; font-weight: 500; color: #01E46F; }
 
-    /* Onramp flow */
-    .section-flow {
-      margin-bottom: 32px;
-    }
-    .flow-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .flow-step {
-      position: relative;
-      padding-right: 20px;
-    }
-    .flow-step:last-child {
-      padding-right: 0;
-    }
-    .flow-circle-row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      position: relative;
-    }
+    /* ── Flow ─────────────────────────────────────── */
+    .section-flow { margin-bottom: 32px; }
+    .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .flow-step { position: relative; padding-right: 20px; }
+    .flow-step:last-child { padding-right: 0; }
+    .flow-circle-row { display: flex; align-items: center; margin-bottom: 10px; position: relative; }
     .flow-step:not(:last-child) .flow-circle-row::after {
-      content: '';
-      position: absolute;
-      left: 40px;
-      top: 20px;
-      right: -20px;
-      height: 1px;
-      background: #c8e0d4;
+      content: ''; position: absolute; left: 40px; top: 20px; right: -20px;
+      height: 1px; background: rgba(1,228,111,0.3);
     }
     .flow-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #1a5c3a;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 16px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: #01E46F; color: #003401;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 16px;
+      flex-shrink: 0; position: relative; z-index: 1;
     }
-    .flow-title {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-    }
-    .flow-body {
-      font-size: 10.5px;
-      font-weight: 300;
-      color: #777;
-      line-height: 1.55;
-    }
+    .flow-title { font-size: 11.5px; font-weight: 500; color: #fff; margin-bottom: 4px; }
+    .flow-body { font-size: 10.5px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.55; }
 
-    /* Before/after metric cards */
-    .section-metrics {
-      margin-bottom: 80px;
-    }
-    .metric-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
+    /* ── Metric cards ─────────────────────────────── */
+    .section-metrics { margin-bottom: 80px; }
+    .metric-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .metric-card {
-      border: 0.5px solid #e8e8e8;
-      border-radius: 8px;
-      padding: 16px;
+      border: 0.5px solid rgba(1,228,111,0.2); border-radius: 8px; padding: 16px;
+      background: transparent;
     }
-    .metric-before {
-      font-size: 11px;
-      font-weight: 300;
-      color: #aaa;
-      margin-bottom: 4px;
-    }
-    .metric-arrow {
-      font-size: 11px;
-      color: #ccc;
-      margin: 0 4px;
-    }
-    .metric-after {
-      font-size: 20px;
-      font-weight: 500;
-      color: #1a5c3a;
-      line-height: 1.1;
-      margin-bottom: 5px;
-    }
+    .metric-before { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+    .metric-after { font-size: 20px; font-weight: 500; color: #01E46F; line-height: 1.1; margin-bottom: 5px; }
     .metric-change {
-      display: inline-block;
-      background: #eaf5ef;
-      color: #1a5c3a;
-      border-radius: 4px;
-      padding: 2px 7px;
-      font-size: 10.5px;
-      font-weight: 500;
-      margin-bottom: 6px;
+      display: inline-block; background: rgba(1,228,111,0.12); color: #01E46F;
+      border-radius: 4px; padding: 2px 7px; font-size: 10.5px; font-weight: 500; margin-bottom: 6px;
     }
-    .metric-label {
-      font-size: 11px;
-      font-weight: 300;
-      color: #666;
-      margin-top: 6px;
-    }
+    .metric-label { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.4); margin-top: 6px; }
 
-    /* ════════════════════════════════════════════════
-       PAGE 2
-    ════════════════════════════════════════════════ */
-
-    /* Conversion breakdown */
-    .section-conversion {
-      margin-bottom: 28px;
-    }
-    .conversion-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-    .doughnut-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .doughnut-canvas-wrap {
-      position: relative;
-      height: 200px;
-      width: 200px;
-    }
+    /* ── Conversion section ───────────────────────── */
+    .section-conversion { margin-bottom: 28px; }
+    .conversion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .doughnut-wrap { display: flex; flex-direction: column; align-items: center; }
+    .doughnut-canvas-wrap { position: relative; height: 200px; width: 200px; }
     .doughnut-legend {
-      display: flex;
-      gap: 16px;
-      margin-top: 12px;
-      font-size: 11.5px;
-      font-weight: 300;
-      color: #555;
+      display: flex; gap: 16px; margin-top: 12px;
+      font-size: 11.5px; font-weight: 300; color: rgba(255,255,255,0.55);
     }
-    .doughnut-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .doughnut-swatch {
-      width: 9px;
-      height: 9px;
-      flex-shrink: 0;
-    }
-    .why-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding-top: 4px;
-    }
-    .why-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
+    .doughnut-legend-item { display: flex; align-items: center; gap: 5px; }
+    .doughnut-swatch { width: 9px; height: 9px; flex-shrink: 0; }
+    .why-list { display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
+    .why-item { display: flex; align-items: flex-start; gap: 12px; }
     .why-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-      color: #1a5c3a;
-      line-height: 1;
-      flex-shrink: 0;
-      min-width: 18px;
-      padding-top: 1px;
+      font-family: 'DM Serif Display', serif; font-size: 18px;
+      color: #01E46F; line-height: 1; flex-shrink: 0; min-width: 18px; padding-top: 1px;
     }
-    .why-text {
-      font-size: 12.5px;
-      font-weight: 300;
-      color: #444;
-      line-height: 1.6;
-    }
-    .why-text strong {
-      font-weight: 500;
-      color: #1a1a1a;
-    }
+    .why-text { font-size: 12.5px; font-weight: 300; color: #b0c4b0; line-height: 1.6; }
+    .why-text strong { font-weight: 500; color: #fff; }
 
-    /* Friction eliminated */
-    .section-friction {
-      margin-bottom: 28px;
-    }
-    .friction-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    /* ── Friction ─────────────────────────────────── */
+    .section-friction { margin-bottom: 28px; }
+    .friction-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .friction-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 12.5px;
-      font-weight: 300;
-      color: #444;
-      line-height: 1.6;
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 12.5px; font-weight: 300; color: #b0c4b0; line-height: 1.6;
     }
     .friction-dot {
-      flex-shrink: 0;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #c04a28;
-      margin-top: 7px;
+      flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(255,0,255,0.75); margin-top: 7px;
     }
 
-    /* Merchant segments */
-    .section-segments {
-      margin-bottom: 0;
-    }
-    .segment-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .segment-card {
-      border: 0.5px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 14px;
-    }
+    /* ── Segment cards ────────────────────────────── */
+    .section-segments { margin-bottom: 0; }
+    .segment-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .segment-card { border: 0.5px solid rgba(1,228,111,0.2); border-radius: 8px; padding: 14px; }
     .segment-icon-box {
-      width: 28px;
-      height: 28px;
-      background: #f2f9f5;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 9px;
+      width: 28px; height: 28px; background: rgba(1,228,111,0.1);
+      border-radius: 6px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 9px;
     }
-    .segment-card .card-title {
-      font-size: 12px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 5px;
-    }
-    .segment-card .card-body {
-      font-size: 11.5px;
-      font-weight: 300;
-      color: #666;
-      line-height: 1.55;
-    }
+    .segment-card .card-title { font-size: 12px; font-weight: 500; color: #fff; margin-bottom: 5px; }
+    .segment-card .card-body { font-size: 11.5px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.55; }
 
-    /* HR */
-    .section-hr {
-      border: none;
-      border-top: 0.5px solid #ebebeb;
-      margin: 24px 0;
-    }
+    .section-hr { border: none; border-top: 0.5px solid rgba(1,228,111,0.15); margin: 24px 0; }
 
-    /* CTA */
+    /* ── CTA ──────────────────────────────────────── */
     .cta-block {
-      background: #1a5c3a;
-      border-radius: 10px;
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 64px;
+      background: #01E46F; border-radius: 10px; padding: 24px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; margin-bottom: 64px;
     }
-    .cta-left .cta-ready {
-      font-size: 12px;
-      font-weight: 300;
-      color: #8fcfac;
-      margin-bottom: 3px;
-    }
-    .cta-left .cta-headline {
-      font-family: 'DM Serif Display', serif;
-      font-size: 21px;
-      color: #fff;
-      line-height: 1.2;
-    }
-    .cta-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-    .cta-right .cta-line {
-      font-size: 11px;
-      font-weight: 300;
-      color: #8fcfac;
-      white-space: nowrap;
-    }
-    .cta-right .cta-line strong {
-      font-weight: 500;
-      color: #fff;
-    }
-    .cta-right .cta-contact {
-      font-size: 11px;
-      font-weight: 300;
-      color: #6aab8a;
-      margin-top: 2px;
-    }
+    .cta-left .cta-ready { font-size: 12px; font-weight: 300; color: rgba(0,52,1,0.65); margin-bottom: 3px; }
+    .cta-left .cta-headline { font-family: 'DM Serif Display', serif; font-size: 21px; color: #003401; line-height: 1.2; }
+    .cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+    .cta-right .cta-line { font-size: 11px; font-weight: 300; color: rgba(0,52,1,0.65); white-space: nowrap; }
+    .cta-right .cta-line strong { font-weight: 500; color: #003401; }
+    .cta-right .cta-contact { font-size: 11px; font-weight: 300; color: rgba(0,52,1,0.5); margin-top: 2px; }
 
     /* ── Version switcher ─────────────────────────── */
     .version-switcher {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 9999;
-      background: #1a1a1a;
-      border-radius: 100px;
-      padding: 10px 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'DM Sans', sans-serif;
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      background: #01E46F; border-radius: 100px; padding: 10px 18px;
+      display: flex; align-items: center; gap: 10px; font-family: 'DM Sans', sans-serif;
     }
     .vs-current { display: flex; flex-direction: column; }
-    .vs-viewing { display: block; font-size: 10px; font-weight: 300; color: #666; line-height: 1.3; }
-    .vs-name    { font-size: 12px; font-weight: 500; color: #fff; line-height: 1.3; }
-    .vs-divider { width: 1px; height: 24px; background: #333; flex-shrink: 0; }
+    .vs-viewing { display: block; font-size: 10px; font-weight: 300; color: rgba(0,52,1,0.6); line-height: 1.3; }
+    .vs-name    { font-size: 12px; font-weight: 500; color: #003401; line-height: 1.3; }
+    .vs-divider { width: 1px; height: 24px; background: rgba(0,52,1,0.3); flex-shrink: 0; }
     .vs-link    { text-decoration: none; display: flex; align-items: center; gap: 6px; }
-    .vs-link-label { font-size: 12px; font-weight: 500; color: #fff; transition: color 0.15s ease; }
-    .vs-link:hover .vs-link-label { color: #1a5c3a; }
-    .vs-arrow   { font-size: 11px; color: #666; }
+    .vs-link-label { font-size: 12px; font-weight: 500; color: rgba(0,52,1,0.7); transition: color 0.15s ease; }
+    .vs-link:hover .vs-link-label { color: #003401; }
+    .vs-arrow   { font-size: 11px; color: rgba(0,52,1,0.5); }
 
-    /* ── Print ────────────────────────────────────── */
     @media print {
       body { background: #fff; padding: 0; }
-      .page { box-shadow: none; }
+      .page { box-shadow: none; background: #fff; }
       .page-sep { display: none; }
       .version-switcher { display: none; }
     }
@@ -575,14 +239,11 @@
 
   <!-- ════════════════════════ PAGE 1 ════════════════════════ -->
   <div class="page">
-
-    <!-- Header -->
     <div class="doc-header">
       <span class="logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="doc-label">Impact Report / Merchant Recurring Payments</span>
     </div>
 
-    <!-- Hero -->
     <div class="hero-grid">
       <div class="hero-left">
         <div class="eyebrow">Case study</div>
@@ -590,22 +251,12 @@
         <p class="subtext">How PayRam's wallet onramp flow removes friction between customer intent and payment completion, turning abandoned checkouts into locked-in recurring revenue.</p>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat-card">
-          <div class="stat-num">60%</div>
-          <div class="stat-label">Recurring payment conversion via onramp</div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="stat-num">~85%</div>
-          <div class="stat-label">Reduction in time to first payment</div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="stat-num">&lt;4%</div>
-          <div class="stat-label">Payment failure rate post-integration</div>
-        </div>
+        <div class="hero-stat-card"><div class="stat-num">60%</div><div class="stat-label">Recurring payment conversion via onramp</div></div>
+        <div class="hero-stat-card"><div class="stat-num">~85%</div><div class="stat-label">Reduction in time to first payment</div></div>
+        <div class="hero-stat-card"><div class="stat-num">&lt;4%</div><div class="stat-label">Payment failure rate post-integration</div></div>
       </div>
     </div>
 
-    <!-- Bar chart -->
     <div class="section-chart">
       <div class="section-label">Daily active users — 14-day onramp window</div>
       <div class="chart-header">
@@ -614,22 +265,13 @@
           <div class="chart-sub">Indexed from Day 1 of onramp activation &middot; Merchant cohort average</div>
         </div>
         <div class="chart-legend">
-          <div class="chart-legend-item">
-            <span class="legend-swatch" style="background:#c8e0d4;"></span>
-            <span>Pre-peak</span>
-          </div>
-          <div class="chart-legend-item">
-            <span class="legend-swatch" style="background:#1a5c3a;"></span>
-            <span>Conversion surge</span>
-          </div>
-          <div class="chart-legend-item">
-            <span class="legend-swatch" style="background:#0e3d27;"></span>
-            <span>Sustained growth</span>
-          </div>
+          <div class="chart-legend-item"><span class="legend-swatch" style="background:rgba(255,255,255,0.18);"></span><span>Pre-peak</span></div>
+          <div class="chart-legend-item"><span class="legend-swatch" style="background:#01E46F;"></span><span>Conversion surge</span></div>
+          <div class="chart-legend-item"><span class="legend-swatch" style="background:#CAFF54;"></span><span>Sustained growth</span></div>
         </div>
       </div>
       <div class="chart-canvas-wrap">
-        <canvas id="dauChart" role="img" aria-label="Bar chart showing DAU growth from 1,200 on Day 1 to 4,850 on Day 14 across three phases: pre-peak (D1-D4), conversion surge (D5-D9), and sustained growth (D10-D14).">
+        <canvas id="dauChart" role="img" aria-label="Bar chart showing DAU growth from 1,200 on Day 1 to 4,850 on Day 14 across three phases: pre-peak, conversion surge, and sustained growth.">
           DAU grew from 1,200 on Day 1 to 4,850 on Day 14, representing 304% growth.
         </canvas>
       </div>
@@ -639,136 +281,63 @@
       </div>
     </div>
 
-    <!-- Onramp flow -->
     <div class="section-flow">
       <div class="section-label">The onramp flow</div>
       <div class="flow-grid">
-        <div class="flow-step">
-          <div class="flow-circle-row">
-            <div class="flow-circle">01</div>
-          </div>
-          <div class="flow-title">Wallet in seconds</div>
-          <div class="flow-body">Created or connected within the checkout session</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-circle-row">
-            <div class="flow-circle">02</div>
-          </div>
-          <div class="flow-title">Fiat conversion</div>
-          <div class="flow-body">Local currency converted to stablecoin on the fly</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-circle-row">
-            <div class="flow-circle">03</div>
-          </div>
-          <div class="flow-title">Recurring auth</div>
-          <div class="flow-body">Authorized in the same session — no return visit</div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-circle-row">
-            <div class="flow-circle">04</div>
-          </div>
-          <div class="flow-title">Instant settlement</div>
-          <div class="flow-body">Merchant wallet funded in real-time</div>
-        </div>
+        <div class="flow-step"><div class="flow-circle-row"><div class="flow-circle">01</div></div><div class="flow-title">Wallet in seconds</div><div class="flow-body">Created or connected within the checkout session</div></div>
+        <div class="flow-step"><div class="flow-circle-row"><div class="flow-circle">02</div></div><div class="flow-title">Fiat conversion</div><div class="flow-body">Local currency converted to stablecoin on the fly</div></div>
+        <div class="flow-step"><div class="flow-circle-row"><div class="flow-circle">03</div></div><div class="flow-title">Recurring auth</div><div class="flow-body">Authorized in the same session — no return visit</div></div>
+        <div class="flow-step"><div class="flow-circle-row"><div class="flow-circle">04</div></div><div class="flow-title">Instant settlement</div><div class="flow-body">Merchant wallet funded in real-time</div></div>
       </div>
     </div>
 
-    <!-- Before vs. after metric cards -->
     <div class="section-metrics">
       <div class="section-label">Before vs. after — key metrics</div>
       <div class="metric-cards">
-        <div class="metric-card">
-          <div class="metric-before">Before: ~35%</div>
-          <div class="metric-after">Up to 60%</div>
-          <span class="metric-change">+25pp</span>
-          <div class="metric-label">Checkout completion rate</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-before">Before: 8–12 mins</div>
-          <div class="metric-after">Under 90s</div>
-          <span class="metric-change">~85% faster</span>
-          <div class="metric-label">Time to first payment</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-before">Before: 18–22%</div>
-          <div class="metric-after">Under 4%</div>
-          <span class="metric-change">~80% reduction</span>
-          <div class="metric-label">Recurring payment failure rate</div>
-        </div>
+        <div class="metric-card"><div class="metric-before">Before: ~35%</div><div class="metric-after">Up to 60%</div><span class="metric-change">+25pp</span><div class="metric-label">Checkout completion rate</div></div>
+        <div class="metric-card"><div class="metric-before">Before: 8–12 mins</div><div class="metric-after">Under 90s</div><span class="metric-change">~85% faster</span><div class="metric-label">Time to first payment</div></div>
+        <div class="metric-card"><div class="metric-before">Before: 18–22%</div><div class="metric-after">Under 4%</div><span class="metric-change">~80% reduction</span><div class="metric-label">Recurring payment failure rate</div></div>
       </div>
     </div>
 
-    <!-- Page footer -->
     <div class="page-footer">
       <span class="footer-logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="footer-page">Page 1 of 2</span>
     </div>
-
   </div>
 
-  <!-- Page separator -->
-  <div class="page-sep">
-    <span>Page 2 of 2</span>
-  </div>
+  <div class="page-sep"><span>Page 2 of 2</span></div>
 
   <!-- ════════════════════════ PAGE 2 ════════════════════════ -->
   <div class="page">
-
-    <!-- Header -->
     <div class="doc-header">
       <span class="logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="doc-label">Impact Report / Merchant Recurring Payments</span>
     </div>
 
-    <!-- Conversion breakdown -->
     <div class="section-conversion">
       <div class="section-label">Conversion breakdown — why 60% holds</div>
       <div class="conversion-grid">
-
-        <!-- Doughnut chart -->
         <div class="doughnut-wrap">
           <div class="doughnut-canvas-wrap">
-            <canvas id="conversionChart" role="img" aria-label="Doughnut chart showing 60% conversion with PayRam onramp versus 35% with legacy checkout.">
+            <canvas id="conversionChart" role="img" aria-label="Doughnut chart: PayRam onramp achieves 60% conversion vs 35% legacy checkout.">
               PayRam onramp achieves 60% conversion compared to 35% with legacy checkout.
             </canvas>
           </div>
           <div class="doughnut-legend">
-            <div class="doughnut-legend-item">
-              <span class="doughnut-swatch" style="background:#ebebeb;"></span>
-              <span>Legacy checkout</span>
-            </div>
-            <div class="doughnut-legend-item">
-              <span class="doughnut-swatch" style="background:#1a5c3a;"></span>
-              <span>PayRam onramp</span>
-            </div>
+            <div class="doughnut-legend-item"><span class="doughnut-swatch" style="background:rgba(255,255,255,0.15);border:0.5px solid rgba(255,255,255,0.2);"></span><span>Legacy checkout</span></div>
+            <div class="doughnut-legend-item"><span class="doughnut-swatch" style="background:#01E46F;"></span><span style="color:#01E46F;">PayRam onramp</span></div>
           </div>
         </div>
-
-        <!-- Why list -->
         <div class="why-list">
-          <div class="why-item">
-            <div class="why-num">1</div>
-            <div class="why-text"><strong>One-session auth.</strong> Recurring permissions locked in during onboarding. No return visit required, no drop-off window.</div>
-          </div>
-          <div class="why-item">
-            <div class="why-num">2</div>
-            <div class="why-text"><strong>Fiat entry point.</strong> Customers pay local currency. PayRam handles conversion. No crypto knowledge needed.</div>
-          </div>
-          <div class="why-item">
-            <div class="why-num">3</div>
-            <div class="why-text"><strong>Wallet abstraction.</strong> Product experience stays front and center. Infrastructure is invisible to the end user.</div>
-          </div>
-          <div class="why-item">
-            <div class="why-num">4</div>
-            <div class="why-text"><strong>Mobile-first.</strong> Optimized for mobile checkout where drop-offs historically peak.</div>
-          </div>
+          <div class="why-item"><div class="why-num">1</div><div class="why-text"><strong>One-session auth.</strong> Recurring permissions locked in during onboarding. No return visit required, no drop-off window.</div></div>
+          <div class="why-item"><div class="why-num">2</div><div class="why-text"><strong>Fiat entry point.</strong> Customers pay local currency. PayRam handles conversion. No crypto knowledge needed.</div></div>
+          <div class="why-item"><div class="why-num">3</div><div class="why-text"><strong>Wallet abstraction.</strong> Product experience stays front and center. Infrastructure is invisible to the end user.</div></div>
+          <div class="why-item"><div class="why-num">4</div><div class="why-text"><strong>Mobile-first.</strong> Optimized for mobile checkout where drop-offs historically peak.</div></div>
         </div>
-
       </div>
     </div>
 
-    <!-- Friction eliminated -->
     <div class="section-friction">
       <div class="section-label">Friction eliminated</div>
       <ul class="friction-list">
@@ -779,66 +348,56 @@
       </ul>
     </div>
 
-    <!-- Merchant segments -->
     <div class="section-segments">
       <div class="section-label">Merchant segments</div>
       <div class="segment-cards">
-
-        <!-- Subscriptions — sunburst -->
         <div class="segment-card">
           <div class="segment-icon-box">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7.5" cy="7.5" r="2.2" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="7.5" y1="0.5" x2="7.5" y2="3.2" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="7.5" y1="11.8" x2="7.5" y2="14.5" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="0.5" y1="7.5" x2="3.2" y2="7.5" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="11.8" y1="7.5" x2="14.5" y2="7.5" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="2.4" y1="2.4" x2="4.4" y2="4.4" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="10.6" y1="10.6" x2="12.6" y2="12.6" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="12.6" y1="2.4" x2="10.6" y2="4.4" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="4.4" y1="10.6" x2="2.4" y2="12.6" stroke="#1a5c3a" stroke-width="1.7"/>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="7.5" cy="7.5" r="2.2" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="7.5" y1="0.5" x2="7.5" y2="3.2" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="7.5" y1="11.8" x2="7.5" y2="14.5" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="0.5" y1="7.5" x2="3.2" y2="7.5" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="11.8" y1="7.5" x2="14.5" y2="7.5" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="2.4" y1="2.4" x2="4.4" y2="4.4" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="10.6" y1="10.6" x2="12.6" y2="12.6" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="12.6" y1="2.4" x2="10.6" y2="4.4" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="4.4" y1="10.6" x2="2.4" y2="12.6" stroke="#01E46F" stroke-width="1.7"/>
             </svg>
           </div>
           <div class="card-title">Subscription businesses</div>
           <div class="card-body">Authorization captured at peak intent. Higher activation from new signups, lower involuntary churn.</div>
         </div>
-
-        <!-- Platforms — 2x2 grid -->
         <div class="segment-card">
           <div class="segment-icon-box">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="1" width="5" height="5" rx="1" stroke="#1a5c3a" stroke-width="1.7"/>
-              <rect x="9" y="1" width="5" height="5" rx="1" stroke="#1a5c3a" stroke-width="1.7"/>
-              <rect x="1" y="9" width="5" height="5" rx="1" stroke="#1a5c3a" stroke-width="1.7"/>
-              <rect x="9" y="9" width="5" height="5" rx="1" stroke="#1a5c3a" stroke-width="1.7"/>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="1" width="5" height="5" rx="1" stroke="#01E46F" stroke-width="1.7"/>
+              <rect x="9" y="1" width="5" height="5" rx="1" stroke="#01E46F" stroke-width="1.7"/>
+              <rect x="1" y="9" width="5" height="5" rx="1" stroke="#01E46F" stroke-width="1.7"/>
+              <rect x="9" y="9" width="5" height="5" rx="1" stroke="#01E46F" stroke-width="1.7"/>
             </svg>
           </div>
           <div class="card-title">Platforms and marketplaces</div>
           <div class="card-body">Fewer failed recurring transactions. 90-day payment retention measurably higher for onramp cohorts.</div>
         </div>
-
-        <!-- Emerging markets — globe -->
         <div class="segment-card">
           <div class="segment-icon-box">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7.5" cy="7.5" r="6" stroke="#1a5c3a" stroke-width="1.7"/>
-              <ellipse cx="7.5" cy="7.5" rx="2.6" ry="6" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="1.5" y1="7.5" x2="13.5" y2="7.5" stroke="#1a5c3a" stroke-width="1.7"/>
-              <line x1="2.3" y1="4.7" x2="12.7" y2="4.7" stroke="#1a5c3a" stroke-width="1.2"/>
-              <line x1="2.3" y1="10.3" x2="12.7" y2="10.3" stroke="#1a5c3a" stroke-width="1.2"/>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="7.5" cy="7.5" r="6" stroke="#01E46F" stroke-width="1.7"/>
+              <ellipse cx="7.5" cy="7.5" rx="2.6" ry="6" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="1.5" y1="7.5" x2="13.5" y2="7.5" stroke="#01E46F" stroke-width="1.7"/>
+              <line x1="2.3" y1="4.7" x2="12.7" y2="4.7" stroke="#01E46F" stroke-width="1.2"/>
+              <line x1="2.3" y1="10.3" x2="12.7" y2="10.3" stroke="#01E46F" stroke-width="1.2"/>
             </svg>
           </div>
           <div class="card-title">Emerging markets</div>
           <div class="card-body">Consistently above 50% conversion in limited-banking regions. Stablecoin settlement removes FX risk.</div>
         </div>
-
       </div>
     </div>
 
-    <!-- HR -->
     <hr class="section-hr" />
 
-    <!-- CTA -->
     <div class="cta-block">
       <div class="cta-left">
         <div class="cta-ready">Ready to integrate?</div>
@@ -852,157 +411,86 @@
       </div>
     </div>
 
-    <!-- Page footer -->
     <div class="page-footer">
       <span class="footer-logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="footer-page">Page 2 of 2</span>
     </div>
-
   </div>
 
-  <!-- Version switcher -->
   <div class="version-switcher">
-    <div class="vs-current">
-      <span class="vs-viewing">Viewing</span>
-      <span class="vs-name">v2 — Infographic</span>
-    </div>
+    <div class="vs-current"><span class="vs-viewing">Viewing</span><span class="vs-name">v2 — Infographic</span></div>
     <div class="vs-divider"></div>
-    <a href="index-v3-narrative.html" class="vs-link">
-      <span class="vs-link-label">v3 — Narrative</span>
-      <span class="vs-arrow">→</span>
-    </a>
+    <a href="index-v3-narrative.html" class="vs-link"><span class="vs-link-label">v3 — Narrative</span><span class="vs-arrow">→</span></a>
   </div>
 
   <script>
-    // ── Center text plugin for doughnut ──────────────
     const centerTextPlugin = {
       id: 'centerText',
       beforeDraw(chart) {
         if (chart.config.type !== 'doughnut') return;
         const { width, height, ctx } = chart;
-        const cx = width / 2;
-        const cy = height / 2;
         ctx.save();
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        // "60%"
         ctx.font = "28px 'DM Serif Display', serif";
-        ctx.fillStyle = '#1a5c3a';
-        ctx.fillText('60%', cx, cy - 8);
-        // "conversion"
+        ctx.fillStyle = '#01E46F';
+        ctx.fillText('60%', width/2, height/2 - 8);
         ctx.font = "300 11px 'DM Sans', sans-serif";
-        ctx.fillStyle = '#999';
-        ctx.fillText('conversion', cx, cy + 16);
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.fillText('conversion', width/2, height/2 + 16);
         ctx.restore();
       }
     };
     Chart.register(centerTextPlugin);
 
+    const TBASE = {
+      backgroundColor: '#0a1f0a', displayColors: false,
+      cornerRadius: 6, padding: 10,
+      titleColor: '#01E46F', bodyColor: '#01E46F',
+    };
+
     document.fonts.ready.then(() => {
-
-      // ── Bar chart ──────────────────────────────────
-      const dauCtx = document.getElementById('dauChart').getContext('2d');
-      const dauData = [1200,1480,1650,1820,2100,2380,2700,2950,3280,3600,3850,4100,4480,4850];
-      const barColors = [
-        '#c8e0d4','#c8e0d4','#c8e0d4','#c8e0d4', // D1-D4 pre-peak
-        '#1a5c3a','#1a5c3a','#1a5c3a','#1a5c3a','#1a5c3a', // D5-D9 surge
-        '#0e3d27','#0e3d27','#0e3d27','#0e3d27','#0e3d27'  // D10-D14 sustained
+      // Bar chart
+      const dauColors = [
+        'rgba(255,255,255,0.18)','rgba(255,255,255,0.18)','rgba(255,255,255,0.18)','rgba(255,255,255,0.18)',
+        '#01E46F','#01E46F','#01E46F','#01E46F','#01E46F',
+        '#CAFF54','#CAFF54','#CAFF54','#CAFF54','#CAFF54'
       ];
-
-      new Chart(dauCtx, {
+      new Chart(document.getElementById('dauChart').getContext('2d'), {
         type: 'bar',
         data: {
           labels: ['D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12','D13','D14'],
-          datasets: [{
-            data: dauData,
-            backgroundColor: barColors,
-            borderRadius: 4,
-            borderSkipped: false,
-          }]
+          datasets: [{ data: [1200,1480,1650,1820,2100,2380,2700,2950,3280,3600,3850,4100,4480,4850], backgroundColor: dauColors, borderRadius: 4, borderSkipped: false }]
         },
         options: {
-          responsive: true,
-          maintainAspectRatio: false,
+          responsive: true, maintainAspectRatio: false,
           plugins: {
             legend: { display: false },
-            tooltip: {
-              backgroundColor: '#1a1a1a',
-              titleColor: '#fff',
-              bodyColor: '#fff',
-              displayColors: false,
-              callbacks: {
-                label(ctx) {
-                  return ctx.parsed.y.toLocaleString() + ' DAU';
-                },
-                title(items) {
-                  return items[0].label;
-                }
-              }
-            }
+            tooltip: { ...TBASE, callbacks: { label: ctx => ctx.parsed.y.toLocaleString() + ' DAU', title: items => items[0].label } }
           },
           scales: {
-            x: {
-              grid: { display: false },
-              border: { display: false },
-              ticks: {
-                font: { family: "'DM Sans', sans-serif", size: 11 },
-                color: '#aaa',
-                autoSkip: false,
-                maxRotation: 0
-              }
-            },
-            y: {
-              max: 5500,
-              grid: { color: '#f0f0f0' },
-              border: { display: false, dash: [0] },
-              ticks: {
-                font: { family: "'DM Sans', sans-serif", size: 11 },
-                color: '#aaa',
-                callback(val) {
-                  return (val / 1000).toFixed(1).replace('.0','') + 'k';
-                }
-              }
-            }
+            x: { grid: { display: false }, border: { display: false }, ticks: { font: { family: "'DM Sans',sans-serif", size: 11 }, color: 'rgba(255,255,255,0.3)', autoSkip: false, maxRotation: 0 } },
+            y: { max: 5500, grid: { color: 'rgba(255,255,255,0.06)' }, border: { display: false }, ticks: { font: { family: "'DM Sans',sans-serif", size: 11 }, color: 'rgba(255,255,255,0.3)', callback: v => (v/1000).toFixed(1).replace('.0','')+'k' } }
           }
         }
       });
 
-      // ── Doughnut chart ────────────────────────────
-      const convCtx = document.getElementById('conversionChart').getContext('2d');
-
-      new Chart(convCtx, {
+      // Doughnut
+      new Chart(document.getElementById('conversionChart').getContext('2d'), {
         type: 'doughnut',
         data: {
           labels: ['Legacy checkout', 'PayRam onramp'],
-          datasets: [{
-            data: [35, 60],
-            backgroundColor: ['#ebebeb', '#1a5c3a'],
-            borderWidth: 0,
-          }]
+          datasets: [{ data: [35, 60], backgroundColor: ['rgba(255,255,255,0.12)', '#01E46F'], borderWidth: 0 }]
         },
         options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          cutout: '68%',
+          responsive: true, maintainAspectRatio: false, cutout: '68%',
           plugins: {
             legend: { display: false },
-            tooltip: {
-              backgroundColor: '#1a1a1a',
-              titleColor: '#fff',
-              bodyColor: '#fff',
-              displayColors: false,
-              callbacks: {
-                label(ctx) {
-                  return ctx.parsed + '%';
-                }
-              }
-            }
+            tooltip: { ...TBASE, callbacks: { label: ctx => ctx.parsed + '%' } }
           }
         }
       });
-
-    }); // end fonts.ready
+    });
   </script>
-
 </body>
 </html>

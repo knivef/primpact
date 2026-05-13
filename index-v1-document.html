@@ -3,39 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PayRam — Impact Report</title>
+  <title>PayRam — Impact Report v1 Document</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #f0ede8;
+      background: #003401;
       font-family: 'DM Sans', sans-serif;
       font-weight: 400;
-      color: #444;
+      color: #b0c4b0;
       padding: 48px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
     }
 
-    /* ── Page wrapper ─────────────────────────────── */
+    /* ── Page ─────────────────────────────────────── */
     .page {
       width: 794px;
       min-height: 1123px;
-      background: #fff;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      background: #0a1f0a;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.40);
       padding: 64px 72px;
       position: relative;
       border-radius: 0;
     }
+
+    /* ── Logo fills (white on dark) ───────────────── */
+    .doc-header .logo svg path,
+    .page-footer .footer-logo svg path { fill: #FFFFFF; }
 
     /* ── Page separator ───────────────────────────── */
     .page-sep {
@@ -50,53 +49,44 @@
       content: '';
       flex: 1;
       height: 0.5px;
-      background: #ccc;
+      background: rgba(1,228,111,0.15);
     }
     .page-sep span {
-      font-family: 'DM Sans', sans-serif;
       font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #aaa;
+      color: rgba(1,228,111,0.4);
       white-space: nowrap;
     }
 
-    /* ── Shared: section title ────────────────────── */
+    /* ── Section title ────────────────────────────── */
     .section-title {
-      font-family: 'DM Sans', sans-serif;
       font-size: 10.5px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #999;
+      color: rgba(1,228,111,0.65);
       margin-bottom: 14px;
     }
 
-    /* ── Shared: doc header ───────────────────────── */
+    /* ── Doc header ───────────────────────────────── */
     .doc-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1.5px solid #1a1a1a;
+      border-bottom: 1.5px solid rgba(1,228,111,0.3);
       padding-bottom: 14px;
       margin-bottom: 36px;
     }
-    .doc-header .logo {
-      display: flex;
-      align-items: center;
-    }
-    .doc-header .logo svg {
-      height: 20px;
-      width: auto;
-    }
+    .doc-header .logo { display: flex; align-items: center; }
+    .doc-header .logo svg { height: 20px; width: auto; }
     .doc-header .doc-label {
-      font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #888;
+      color: rgba(255,255,255,0.35);
     }
 
     /* ── Page footer ──────────────────────────────── */
@@ -109,32 +99,17 @@
       align-items: center;
       justify-content: space-between;
     }
-    .page-footer .footer-logo svg {
-      height: 12px;
-      width: auto;
-      opacity: 0.35;
-    }
-    .page-footer .footer-page {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      color: #bbb;
-    }
+    .page-footer .footer-logo svg { height: 12px; width: auto; opacity: 0.25; }
+    .page-footer .footer-page { font-size: 11px; color: rgba(255,255,255,0.2); }
 
-    /* ════════════════════════════════════════════════
-       PAGE 1
-    ════════════════════════════════════════════════ */
-
-    /* Hero */
-    .hero {
-      margin-bottom: 34px;
-    }
+    /* ── Hero ─────────────────────────────────────── */
+    .hero { margin-bottom: 34px; }
     .hero .eyebrow {
-      font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #999;
+      color: rgba(255,255,255,0.35);
       margin-bottom: 10px;
     }
     .hero h1 {
@@ -142,22 +117,19 @@
       font-size: 40px;
       line-height: 1.15;
       letter-spacing: -0.025em;
-      color: #1a1a1a;
+      color: #fff;
       margin-bottom: 14px;
     }
-    .hero h1 em {
-      font-style: italic;
-      color: #1a5c3a;
-    }
+    .hero h1 em { font-style: italic; color: #01E46F; }
     .hero .subtext {
       font-size: 14px;
       font-weight: 300;
-      color: #555;
+      color: #b0c4b0;
       line-height: 1.65;
       max-width: 520px;
     }
 
-    /* Stat cards */
+    /* ── Stat cards ───────────────────────────────── */
     .stat-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -165,62 +137,41 @@
       margin-bottom: 34px;
     }
     .stat-card {
-      background: #f2f9f5;
-      border: 0.5px solid #b2d4be;
+      background: rgba(1,228,111,0.06);
+      border: 0.5px solid rgba(1,228,111,0.25);
       border-radius: 8px;
       padding: 18px 16px;
     }
     .stat-card .stat-num {
       font-family: 'DM Serif Display', serif;
       font-size: 32px;
-      color: #1a5c3a;
+      color: #01E46F;
       line-height: 1;
       margin-bottom: 6px;
     }
-    .stat-card .stat-label {
-      font-size: 11.5px;
-      font-weight: 400;
-      color: #555;
-      line-height: 1.45;
-    }
+    .stat-card .stat-label { font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.45; }
 
-    /* Problem section */
-    .section-problem {
-      margin-bottom: 34px;
-    }
+    /* ── Problem ──────────────────────────────────── */
+    .section-problem { margin-bottom: 34px; }
     .problem-box {
-      background: #fafafa;
-      border-left: 3px solid #1a1a1a;
+      background: rgba(1,228,111,0.04);
+      border-left: 3px solid rgba(1,228,111,0.5);
       border-radius: 0 6px 6px 0;
       padding: 18px 20px;
     }
-    .problem-box p {
-      font-size: 13.5px;
-      font-weight: 300;
-      color: #444;
-      line-height: 1.7;
-    }
-    .problem-box p + p {
-      margin-top: 10px;
-    }
+    .problem-box p { font-size: 13.5px; font-weight: 300; color: #b0c4b0; line-height: 1.7; }
+    .problem-box p + p { margin-top: 10px; }
 
-    /* Friction points */
-    .section-friction {
-      margin-bottom: 34px;
-    }
-    .friction-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
+    /* ── Friction ─────────────────────────────────── */
+    .section-friction { margin-bottom: 34px; }
+    .friction-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
     .friction-list li {
       display: flex;
       align-items: flex-start;
       gap: 10px;
       font-size: 13.5px;
       font-weight: 300;
-      color: #444;
+      color: #b0c4b0;
       line-height: 1.6;
     }
     .friction-dot {
@@ -228,176 +179,99 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: #c04a28;
+      background: rgba(255,0,255,0.75);
       margin-top: 7px;
     }
 
-    /* Solution grid */
-    .section-solution {
-      margin-bottom: 80px;
-    }
-    .solution-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
+    /* ── Solution cards ───────────────────────────── */
+    .section-solution { margin-bottom: 80px; }
+    .solution-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .solution-card {
-      border: 0.5px solid #c8e0d4;
+      border: 0.5px solid rgba(1,228,111,0.2);
       border-radius: 8px;
       padding: 16px;
     }
     .solution-card .card-num {
       font-family: 'DM Serif Display', serif;
       font-size: 24px;
-      color: #1a5c3a;
+      color: #01E46F;
       line-height: 1;
       margin-bottom: 6px;
     }
-    .solution-card .card-title {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 5px;
-    }
-    .solution-card .card-body {
-      font-size: 12px;
-      font-weight: 300;
-      color: #666;
-      line-height: 1.6;
-    }
+    .solution-card .card-title { font-size: 12.5px; font-weight: 500; color: #fff; margin-bottom: 5px; }
+    .solution-card .card-body { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
     /* ════════════════════════════════════════════════
        PAGE 2
     ════════════════════════════════════════════════ */
 
     /* Comparison table */
-    .section-comparison {
-      margin-bottom: 34px;
-    }
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12.5px;
-    }
-    .comparison-table thead tr {
-      border-bottom: 0.5px solid #ddd;
-    }
+    .section-comparison { margin-bottom: 34px; }
+    .comparison-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .comparison-table thead tr { border-bottom: 0.5px solid rgba(1,228,111,0.2); }
     .comparison-table thead th {
-      font-family: 'DM Sans', sans-serif;
       font-size: 10.5px;
       font-weight: 500;
       letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: #999;
+      color: rgba(255,255,255,0.4);
       padding: 0 0 10px 0;
       text-align: left;
     }
-    .comparison-table thead th:not(:first-child) {
-      text-align: right;
-    }
-    .comparison-table tbody tr {
-      border-bottom: 0.5px solid #f0f0f0;
-    }
-    .comparison-table tbody td {
-      padding: 11px 0;
-      color: #444;
-      font-weight: 300;
-      line-height: 1.4;
-    }
-    .comparison-table tbody td:not(:first-child) {
-      text-align: right;
-    }
+    .comparison-table thead th:not(:first-child) { text-align: right; }
+    .comparison-table tbody tr { border-bottom: 0.5px solid rgba(1,228,111,0.08); }
+    .comparison-table tbody td { padding: 11px 0; color: #b0c4b0; font-weight: 300; line-height: 1.4; }
+    .comparison-table tbody td:not(:first-child) { text-align: right; }
     .change-pill {
       display: inline-block;
-      background: #eaf5ef;
-      color: #1a5c3a;
+      background: rgba(1,228,111,0.12);
+      color: #01E46F;
       border-radius: 4px;
       padding: 3px 8px;
       font-size: 11px;
       font-weight: 500;
     }
 
-    /* Why 60% section */
-    .section-why {
-      margin-bottom: 34px;
-    }
-    .why-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .why-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
+    /* Why 60% */
+    .section-why { margin-bottom: 34px; }
+    .why-list { display: flex; flex-direction: column; gap: 14px; }
+    .why-item { display: flex; align-items: flex-start; gap: 14px; }
     .why-num {
       font-family: 'DM Serif Display', serif;
       font-size: 20px;
-      color: #1a5c3a;
+      color: #01E46F;
       line-height: 1;
       flex-shrink: 0;
       width: 24px;
       padding-top: 1px;
     }
-    .why-text {
-      font-size: 13px;
-      font-weight: 300;
-      color: #444;
-      line-height: 1.65;
-    }
-    .why-text strong {
-      font-weight: 500;
-      color: #1a1a1a;
-    }
+    .why-text { font-size: 13px; font-weight: 300; color: #b0c4b0; line-height: 1.65; }
+    .why-text strong { font-weight: 500; color: #fff; }
 
-    /* Merchant segments */
-    .section-segments {
-      margin-bottom: 32px;
-    }
-    .segment-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .segment-card {
-      border: 0.5px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 16px;
-    }
+    /* Segment cards */
+    .section-segments { margin-bottom: 32px; }
+    .segment-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .segment-card { border: 0.5px solid rgba(1,228,111,0.2); border-radius: 8px; padding: 16px; }
     .segment-icon-box {
       width: 30px;
       height: 30px;
-      background: #f2f9f5;
+      background: rgba(1,228,111,0.1);
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 10px;
     }
-    .segment-card .card-title {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 6px;
-    }
-    .segment-card .card-body {
-      font-size: 12px;
-      font-weight: 300;
-      color: #666;
-      line-height: 1.6;
-    }
+    .segment-icon-box svg * { stroke: #01E46F; }
+    .segment-card .card-title { font-size: 12.5px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+    .segment-card .card-body { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
     /* HR */
-    .section-hr {
-      border: none;
-      border-top: 0.5px solid #e8e8e8;
-      margin: 28px 0;
-    }
+    .section-hr { border: none; border-top: 0.5px solid rgba(1,228,111,0.15); margin: 28px 0; }
 
-    /* CTA block */
+    /* CTA */
     .cta-block {
-      background: #1a5c3a;
+      background: #01E46F;
       border-radius: 10px;
       padding: 28px;
       display: flex;
@@ -406,41 +280,12 @@
       gap: 24px;
       margin-bottom: 72px;
     }
-    .cta-left .cta-ready {
-      font-size: 13px;
-      font-weight: 300;
-      color: #8fcfac;
-      margin-bottom: 4px;
-    }
-    .cta-left .cta-headline {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      color: #fff;
-      line-height: 1.2;
-    }
-    .cta-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 7px;
-      flex-shrink: 0;
-    }
-    .cta-right .cta-line {
-      font-size: 11.5px;
-      font-weight: 300;
-      color: #8fcfac;
-      white-space: nowrap;
-    }
-    .cta-right .cta-line strong {
-      font-weight: 500;
-      color: #fff;
-    }
-    .cta-right .cta-contact {
-      font-size: 11.5px;
-      font-weight: 300;
-      color: #6aab8a;
-      margin-top: 2px;
-    }
+    .cta-left .cta-ready { font-size: 13px; font-weight: 300; color: rgba(0,52,1,0.65); margin-bottom: 4px; }
+    .cta-left .cta-headline { font-family: 'DM Serif Display', serif; font-size: 22px; color: #003401; line-height: 1.2; }
+    .cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; flex-shrink: 0; }
+    .cta-right .cta-line { font-size: 11.5px; font-weight: 300; color: rgba(0,52,1,0.65); white-space: nowrap; }
+    .cta-right .cta-line strong { font-weight: 500; color: #003401; }
+    .cta-right .cta-contact { font-size: 11.5px; font-weight: 300; color: rgba(0,52,1,0.5); margin-top: 2px; }
 
     /* ── Version switcher ─────────────────────────── */
     .version-switcher {
@@ -448,7 +293,7 @@
       bottom: 28px;
       right: 28px;
       z-index: 9999;
-      background: #1a1a1a;
+      background: #01E46F;
       border-radius: 100px;
       padding: 10px 18px;
       display: flex;
@@ -457,18 +302,18 @@
       font-family: 'DM Sans', sans-serif;
     }
     .vs-current { display: flex; flex-direction: column; }
-    .vs-viewing { display: block; font-size: 10px; font-weight: 300; color: #666; line-height: 1.3; }
-    .vs-name    { font-size: 12px; font-weight: 500; color: #fff; line-height: 1.3; }
-    .vs-divider { width: 1px; height: 24px; background: #333; flex-shrink: 0; }
+    .vs-viewing { display: block; font-size: 10px; font-weight: 300; color: rgba(0,52,1,0.6); line-height: 1.3; }
+    .vs-name    { font-size: 12px; font-weight: 500; color: #003401; line-height: 1.3; }
+    .vs-divider { width: 1px; height: 24px; background: rgba(0,52,1,0.3); flex-shrink: 0; }
     .vs-link    { text-decoration: none; display: flex; align-items: center; gap: 6px; }
-    .vs-link-label { font-size: 12px; font-weight: 500; color: #fff; transition: color 0.15s ease; }
-    .vs-link:hover .vs-link-label { color: #1a5c3a; }
-    .vs-arrow   { font-size: 11px; color: #666; }
+    .vs-link-label { font-size: 12px; font-weight: 500; color: rgba(0,52,1,0.7); transition: color 0.15s ease; }
+    .vs-link:hover .vs-link-label { color: #003401; }
+    .vs-arrow   { font-size: 11px; color: rgba(0,52,1,0.5); }
 
     /* ── Print ────────────────────────────────────── */
     @media print {
       body { background: #fff; padding: 0; }
-      .page { box-shadow: none; }
+      .page { box-shadow: none; background: #fff; }
       .page-sep { display: none; }
       .version-switcher { display: none; }
     }
@@ -478,21 +323,17 @@
 
   <!-- ════════════════════════ PAGE 1 ════════════════════════ -->
   <div class="page">
-
-    <!-- Header -->
     <div class="doc-header">
       <span class="logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="doc-label">Impact Report / Merchant Recurring Payments</span>
     </div>
 
-    <!-- Hero -->
     <div class="hero">
       <div class="eyebrow">Case study</div>
       <h1>Driving <em>up to 60%</em> conversion<br>on recurring payments</h1>
       <p class="subtext">How PayRam's wallet onramp flow removes friction between customer intent and payment completion, turning abandoned checkouts into locked-in recurring revenue.</p>
     </div>
 
-    <!-- Stat cards -->
     <div class="stat-cards">
       <div class="stat-card">
         <div class="stat-num">60%</div>
@@ -508,7 +349,6 @@
       </div>
     </div>
 
-    <!-- Problem -->
     <div class="section-problem">
       <div class="section-title">The problem</div>
       <div class="problem-box">
@@ -517,30 +357,16 @@
       </div>
     </div>
 
-    <!-- Friction points -->
     <div class="section-friction">
       <div class="section-title">Friction points merchants faced</div>
       <ul class="friction-list">
-        <li>
-          <span class="friction-dot"></span>
-          <span>Customers without existing wallets couldn't complete payments at all</span>
-        </li>
-        <li>
-          <span class="friction-dot"></span>
-          <span>Multi-step onboarding caused drop-offs before the first transaction</span>
-        </li>
-        <li>
-          <span class="friction-dot"></span>
-          <span>No seamless fiat-to-crypto conversion at the point of checkout</span>
-        </li>
-        <li>
-          <span class="friction-dot"></span>
-          <span>Recurring billing had no reliable trigger mechanism for crypto-native flows</span>
-        </li>
+        <li><span class="friction-dot"></span><span>Customers without existing wallets couldn't complete payments at all</span></li>
+        <li><span class="friction-dot"></span><span>Multi-step onboarding caused drop-offs before the first transaction</span></li>
+        <li><span class="friction-dot"></span><span>No seamless fiat-to-crypto conversion at the point of checkout</span></li>
+        <li><span class="friction-dot"></span><span>Recurring billing had no reliable trigger mechanism for crypto-native flows</span></li>
       </ul>
     </div>
 
-    <!-- Solution -->
     <div class="section-solution">
       <div class="section-title">The PayRam onramp solution</div>
       <div class="solution-grid">
@@ -567,76 +393,39 @@
       </div>
     </div>
 
-    <!-- Page footer -->
     <div class="page-footer">
       <span class="footer-logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="footer-page">Page 1 of 2</span>
     </div>
-
   </div>
 
-  <!-- Page separator -->
-  <div class="page-sep">
-    <span>Page 2 of 2</span>
-  </div>
+  <div class="page-sep"><span>Page 2 of 2</span></div>
 
   <!-- ════════════════════════ PAGE 2 ════════════════════════ -->
   <div class="page">
-
-    <!-- Header -->
     <div class="doc-header">
       <span class="logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="doc-label">Impact Report / Merchant Recurring Payments</span>
     </div>
 
-    <!-- Before vs. after table -->
     <div class="section-comparison">
       <div class="section-title">Before vs. after PayRam</div>
       <table class="comparison-table">
         <thead>
           <tr>
-            <th>Metric</th>
-            <th>Before</th>
-            <th>After</th>
-            <th>Change</th>
+            <th>Metric</th><th>Before</th><th>After</th><th>Change</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Checkout completion rate</td>
-            <td>~35%</td>
-            <td>Up to 60%</td>
-            <td><span class="change-pill">+25pp</span></td>
-          </tr>
-          <tr>
-            <td>Time to first payment</td>
-            <td>8 to 12 mins</td>
-            <td>Under 90 seconds</td>
-            <td><span class="change-pill">~85% faster</span></td>
-          </tr>
-          <tr>
-            <td>Recurring payment failure rate</td>
-            <td>18 to 22%</td>
-            <td>Under 4%</td>
-            <td><span class="change-pill">~80% reduction</span></td>
-          </tr>
-          <tr>
-            <td>Merchant settlement time</td>
-            <td>2 to 5 business days</td>
-            <td>Real-time</td>
-            <td><span class="change-pill">Instant</span></td>
-          </tr>
-          <tr>
-            <td>Payment-related support tickets</td>
-            <td>High volume</td>
-            <td>Near-zero</td>
-            <td><span class="change-pill">Significant drop</span></td>
-          </tr>
+          <tr><td>Checkout completion rate</td><td>~35%</td><td>Up to 60%</td><td><span class="change-pill">+25pp</span></td></tr>
+          <tr><td>Time to first payment</td><td>8 to 12 mins</td><td>Under 90 seconds</td><td><span class="change-pill">~85% faster</span></td></tr>
+          <tr><td>Recurring payment failure rate</td><td>18 to 22%</td><td>Under 4%</td><td><span class="change-pill">~80% reduction</span></td></tr>
+          <tr><td>Merchant settlement time</td><td>2 to 5 business days</td><td>Real-time</td><td><span class="change-pill">Instant</span></td></tr>
+          <tr><td>Payment-related support tickets</td><td>High volume</td><td>Near-zero</td><td><span class="change-pill">Significant drop</span></td></tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Why 60% holds -->
     <div class="section-why">
       <div class="section-title">Why the 60% number holds</div>
       <div class="why-list">
@@ -659,66 +448,56 @@
       </div>
     </div>
 
-    <!-- Merchant segments -->
     <div class="section-segments">
       <div class="section-title">Merchant segments</div>
       <div class="segment-cards">
-
-        <!-- Card 1: Subscription — sunburst icon -->
         <div class="segment-card">
           <div class="segment-icon-box">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="8" r="2.4" stroke="#1a5c3a" stroke-width="1.6"/>
-              <line x1="8" y1="0.5" x2="8" y2="3.5" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="8" y1="12.5" x2="8" y2="15.5" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="0.5" y1="8" x2="3.5" y2="8" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="12.5" y1="8" x2="15.5" y2="8" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="2.636" y1="2.636" x2="4.757" y2="4.757" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="11.243" y1="11.243" x2="13.364" y2="13.364" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="13.364" y1="2.636" x2="11.243" y2="4.757" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="4.757" y1="11.243" x2="2.636" y2="13.364" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="8" cy="8" r="2.4" stroke="#01E46F" stroke-width="1.6"/>
+              <line x1="8" y1="0.5" x2="8" y2="3.5" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="8" y1="12.5" x2="8" y2="15.5" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="0.5" y1="8" x2="3.5" y2="8" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="12.5" y1="8" x2="15.5" y2="8" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="2.636" y1="2.636" x2="4.757" y2="4.757" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="11.243" y1="11.243" x2="13.364" y2="13.364" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="13.364" y1="2.636" x2="11.243" y2="4.757" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="4.757" y1="11.243" x2="2.636" y2="13.364" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="card-title">Subscription businesses</div>
           <div class="card-body">Higher activation from new signups. Payment authorization captured at peak intent, not offloaded to a separate step.</div>
         </div>
-
-        <!-- Card 2: Platforms — 2x2 grid icon -->
         <div class="segment-card">
           <div class="segment-icon-box">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="5.5" height="5.5" rx="1" stroke="#1a5c3a" stroke-width="1.6"/>
-              <rect x="9.5" y="1" width="5.5" height="5.5" rx="1" stroke="#1a5c3a" stroke-width="1.6"/>
-              <rect x="1" y="9.5" width="5.5" height="5.5" rx="1" stroke="#1a5c3a" stroke-width="1.6"/>
-              <rect x="9.5" y="9.5" width="5.5" height="5.5" rx="1" stroke="#1a5c3a" stroke-width="1.6"/>
+              <rect x="1" y="1" width="5.5" height="5.5" rx="1" stroke="#01E46F" stroke-width="1.6"/>
+              <rect x="9.5" y="1" width="5.5" height="5.5" rx="1" stroke="#01E46F" stroke-width="1.6"/>
+              <rect x="1" y="9.5" width="5.5" height="5.5" rx="1" stroke="#01E46F" stroke-width="1.6"/>
+              <rect x="9.5" y="9.5" width="5.5" height="5.5" rx="1" stroke="#01E46F" stroke-width="1.6"/>
             </svg>
           </div>
           <div class="card-title">Platforms and marketplaces</div>
           <div class="card-body">Measurable reduction in failed recurring transactions. Higher 90-day payment retention for onramp-acquired customers.</div>
         </div>
-
-        <!-- Card 3: Emerging markets — globe icon -->
         <div class="segment-card">
           <div class="segment-icon-box">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="8" r="6.5" stroke="#1a5c3a" stroke-width="1.6"/>
-              <ellipse cx="8" cy="8" rx="2.8" ry="6.5" stroke="#1a5c3a" stroke-width="1.6"/>
-              <line x1="1.5" y1="8" x2="14.5" y2="8" stroke="#1a5c3a" stroke-width="1.6" stroke-linecap="round"/>
-              <line x1="2.5" y1="5" x2="13.5" y2="5" stroke="#1a5c3a" stroke-width="1.2" stroke-linecap="round"/>
-              <line x1="2.5" y1="11" x2="13.5" y2="11" stroke="#1a5c3a" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="8" cy="8" r="6.5" stroke="#01E46F" stroke-width="1.6"/>
+              <ellipse cx="8" cy="8" rx="2.8" ry="6.5" stroke="#01E46F" stroke-width="1.6"/>
+              <line x1="1.5" y1="8" x2="14.5" y2="8" stroke="#01E46F" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="2.5" y1="5" x2="13.5" y2="5" stroke="#01E46F" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="2.5" y1="11" x2="13.5" y2="11" stroke="#01E46F" stroke-width="1.2" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="card-title">Emerging markets</div>
           <div class="card-body">Conversion rates consistently above 50% in regions with limited banking access. Stablecoin settlement removes FX risk.</div>
         </div>
-
       </div>
     </div>
 
-    <!-- HR -->
     <hr class="section-hr" />
 
-    <!-- CTA block -->
     <div class="cta-block">
       <div class="cta-left">
         <div class="cta-ready">Ready to integrate?</div>
@@ -732,14 +511,11 @@
       </div>
     </div>
 
-    <!-- Page footer -->
     <div class="page-footer">
       <span class="footer-logo"><svg width="814" height="176" viewBox="0 0 814 176" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M154.126 58.515C153.846 61.1643 153.218 64.2997 152.238 67.9168C149.946 75.9853 146.046 83.3055 140.542 89.873C135.034 96.4449 128.073 101.653 119.658 105.503C112.056 108.991 103.663 110.9 94.4741 111.236L118.579 78.6734H95.6695L108.99 31.3288L55.7155 95.2062H80.2589L75.7398 111.287H75.6022L64.1087 151.948H24L60.0024 24H116.008C129.617 24 139.652 27.0709 146.115 33.2169C152.578 39.3586 155.248 47.7927 154.121 58.515H154.126Z" fill="#0B0D0B"/><path d="M242.729 24.0473H196.476L113.682 152H155.782L167.564 132.663H210.205L211.069 152H253.345L242.729 24.0473ZM185.907 102.483L207.526 66.8846L209.031 102.483H185.907Z" fill="#0B0D0B"/><path d="M341.397 24.0258L308.276 69.3834L300.566 24.0258H254.67L275.502 113.12L264.559 151.974H304.672L315.611 113.12L386.567 24.0258H341.393H341.397Z" fill="#0B0D0B"/><path d="M476.285 33.2426C469.818 27.0966 459.726 24.0258 445.992 24.0258H386.371L350.373 151.978H390.482L403.424 106.075L414.694 151.978H458.776L444.763 103.004C454.459 100.114 462.603 95.3825 469.194 88.815C475.782 82.2474 480.314 74.6305 482.79 65.9512C483.526 63.547 484.05 60.8331 484.364 57.8182C485.439 47.5776 482.743 39.3844 476.28 33.2426H476.285ZM441.512 68.4802C440.398 72.2177 438.631 74.9574 436.223 76.7035C433.807 78.454 430.676 79.3228 426.824 79.3228H410.923L416.99 57.6375H432.895C436.141 57.6375 438.532 58.3902 440.067 59.8955C441.589 61.4051 442.217 63.4782 441.938 66.1319C441.834 67.0953 441.697 67.878 441.512 68.4802Z" fill="#0B0D0B"/><path d="M587.826 24.0258H541.568L458.776 151.978H500.875L512.661 132.641H555.298L556.162 151.978H598.442L587.826 24.0258ZM531 102.458L552.623 66.8587L554.128 102.458H531Z" fill="#0B0D0B"/><path d="M741.042 24.0258L691.96 101.012L685.394 24.0258H636.251L600.253 151.978H640.362L658.292 87.8214L660.059 151.978H694.389L731.952 88.3634L714.082 151.978H754.011L790.004 24.0258H741.042Z" fill="#0B0D0B"/></svg></span>
       <span class="footer-page">Page 2 of 2</span>
     </div>
-
   </div>
-
 
   <!-- Version switcher -->
   <div class="version-switcher">
